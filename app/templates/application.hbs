@@ -8,11 +8,13 @@
     <div class="table-cell header">Pages</div>
     <div class="table-cell header">Actions</div>
   </div>
-  <div class="table-row">
-    <div class="table-cell">{{book.title}}</div>
-    <div class="table-cell">{{book.author}}</div>
-    <div class="table-cell">{{book.publicationYear}}</div>
-    <div class="table-cell">{{book.pages}}</div>
-    <div class="table-cell"></div>
-  </div>
+  {{#each books as |book|}}
+    <div class="table-row">
+      <div class="table-cell">{{book.title}}</div>
+      <div class="table-cell">{{book.author}}</div>
+      <div class="table-cell">{{book.publicationYear}}</div>
+      <div class="table-cell">{{book.pages}}</div>
+      <div class="table-cell"></div>
+    </div>
+  {{/each}}
 </div>
