@@ -25,6 +25,13 @@ export default class ApplicationController extends Controller {
     this.sortProperty = sortProperty
   }
 
+  headerInfo = [
+    {name: 'Title', sortBy: 'title'},
+    {name: 'Author', sortBy: 'author'},
+    {name: 'Publication Year', sortBy: 'publicationYear'},
+    {name: 'Pages', sortBy: 'pages'},
+  ]
+
   books = [{
       id: 1,
       title: 'Brave New World',

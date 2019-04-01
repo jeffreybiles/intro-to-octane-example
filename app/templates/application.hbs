@@ -2,26 +2,13 @@
 
 <div class="table table--5cols">
   <div class="table-row">
-    <SortableHeader @columnName='Title'
-                    @sortBooks={{action this.sortBooks}}
-                    @sortBy='title'
-                    @sortedBy={{this.sortProperty}}
-                    @isReversed={{this.isReversed}}/>
-    <SortableHeader @columnName='Author'
-                    @sortBooks={{action this.sortBooks}}
-                    @sortBy='author'
-                    @sortedBy={{this.sortProperty}}
-                    @isReversed={{this.isReversed}}/>
-    <SortableHeader @columnName='Publication Year'
-                    @sortBooks={{action this.sortBooks}}
-                    @sortBy='publicationYear'
-                    @sortedBy={{this.sortProperty}}
-                    @isReversed={{this.isReversed}}/>
-    <SortableHeader @columnName='Pages'
-                    @sortBooks={{action this.sortBooks}}
-                    @sortBy='pages'
-                    @sortedBy={{this.sortProperty}}
-                    @isReversed={{this.isReversed}}/>
+    {{#each headerInfo as |header|}}
+      <SortableHeader @columnName={{header.name}}
+                      @sortBooks={{action this.sortBooks}}
+                      @sortBy={{header.sortBy}}
+                      @sortedBy={{this.sortProperty}}
+                      @isReversed={{this.isReversed}} />
+    {{/each}}
     <div class="table-cell header">Actions</div>
   </div>
   {{#each sortedBooks as |book|}}
