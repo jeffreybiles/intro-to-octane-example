@@ -5,13 +5,23 @@ import { tracked } from '@glimmer/tracking';
 
 export default class ApplicationController extends Controller {
   @tracked sortProperty = 'pages'
-
+  @tracked isReversed = false;
 
   get sortedBooks(){
-    return this.books.sortBy(this.sortProperty);
+    let books = this.books.sortBy(this.sortProperty);
+    if(this.isReversed) {
+      return books.reverse();
+    } else {
+      return books;
+    }
   }
 
   @action sortBook(sortProperty){
+    if(this.sortProperty === sortProperty) {
+      this.isReversed = !this.isReversed;
+    } else {
+      this.isReversed = false;
+    }
     this.sortProperty = sortProperty
   }
 
