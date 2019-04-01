@@ -1,15 +1,18 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+
 
 export default class ApplicationController extends Controller {
-  name = "Ember"
+  @tracked sortProperty = 'pages'
+
 
   get sortedBooks(){
-    return this.books.sortBy('publicationYear');
+    return this.books.sortBy(this.sortProperty);
   }
 
   @action sortBook(sortProperty){
-    alert(sortProperty)
+    this.sortProperty = sortProperty
   }
 
   books = [{

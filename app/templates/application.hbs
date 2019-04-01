@@ -3,9 +3,9 @@
 <div class="table table--5cols">
   <div class="table-row">
     <div class="table-cell header" {{action 'sortBook' 'title'}}>Title</div>
-    <div class="table-cell header">Author</div>
-    <div class="table-cell header">Publication Year</div>
-    <div class="table-cell header">Pages</div>
+    <div class="table-cell header" {{action 'sortBook' 'author'}}>Author</div>
+    <div class="table-cell header" {{action 'sortBook' 'publicationYear'}}>Publication Year</div>
+    <div class="table-cell header" {{action 'sortBook' 'pages'}}>Pages</div>
     <div class="table-cell header">Actions</div>
   </div>
   {{#each sortedBooks as |book|}}
