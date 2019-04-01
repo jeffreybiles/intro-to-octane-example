@@ -3,6 +3,10 @@ import Controller from '@ember/controller';
 export default class ApplicationController extends Controller {
   name = "Ember"
 
+  get sortedBooks(){
+    return this.books.sortBy('publicationYear');
+  }
+
   books = [{
       id: 1,
       title: 'Brave New World',
