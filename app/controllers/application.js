@@ -1,10 +1,15 @@
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
 
 export default class ApplicationController extends Controller {
   name = "Ember"
 
   get sortedBooks(){
     return this.books.sortBy('publicationYear');
+  }
+
+  @action sortBook(sortProperty){
+    alert(sortProperty)
   }
 
   books = [{
