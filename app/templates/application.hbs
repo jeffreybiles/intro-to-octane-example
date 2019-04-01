@@ -2,11 +2,11 @@
 
 <div class="table table--5cols">
   <div class="table-row">
-    <SortableHeader />
+    <SortableHeader @columnName='Title' @sortBooks={{action this.sortBooks}} @sortBy='title' />
 
-    <div class="table-cell header" {{action 'sortBook' 'author'}}>Author</div>
-    <div class="table-cell header" {{action 'sortBook' 'publicationYear'}}>Publication Year</div>
-    <div class="table-cell header" {{action 'sortBook' 'pages'}}>Pages</div>
+    <div class="table-cell header" {{action 'sortBooks' 'author'}}>Author</div>
+    <div class="table-cell header" {{action 'sortBooks' 'publicationYear'}}>Publication Year</div>
+    <div class="table-cell header" {{action 'sortBooks' 'pages'}}>Pages</div>
     <div class="table-cell header">Actions</div>
   </div>
   {{#each sortedBooks as |book|}}

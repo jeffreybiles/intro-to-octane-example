@@ -16,7 +16,7 @@ export default class ApplicationController extends Controller {
     }
   }
 
-  @action sortBook(sortProperty){
+  @action sortBooks(sortProperty){
     if(this.sortProperty === sortProperty) {
       this.isReversed = !this.isReversed;
     } else {
