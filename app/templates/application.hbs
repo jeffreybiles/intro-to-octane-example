@@ -15,9 +15,10 @@
     {{/each}}
     <div class="table-cell header">Actions</div>
   </div>
-  {{#each sortedBooks as |book|}}
+  {{#each sortedBooks as |book index|}}
     <BookTableRow @book={{book}}
                   @selectBook={{this.selectBook}}
-                  @selectedBook={{this.selectedBook}} />
+                  @selectedBook={{this.selectedBook}}
+                  @index={{index}} />
   {{/each}}
 </div>
