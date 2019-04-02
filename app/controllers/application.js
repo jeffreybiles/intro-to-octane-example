@@ -7,6 +7,19 @@ export default class ApplicationController extends Controller {
   @tracked sortProperty = 'pages'
   @tracked isReversed = false;
   @tracked selectedBookId = null
+  @tracked hiddenBookIds = [1]
+
+  get hiddenBooks(){
+    return this.sortedBooks.filter((book)=>{
+      return this.hiddenBookIds.includes(book.id);
+    });
+  }
+
+  get shownBooks(){
+    return this.sortedBooks.filter((book)=>{
+      return !this.hiddenBookIds.includes(book.id);
+    });
+  }
 
   get selectedBook(){
     return this.books.findBy('id', this.selectedBookId)
