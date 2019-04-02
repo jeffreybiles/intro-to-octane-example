@@ -1,4 +1,4 @@
-<div class="table-row" {{action @selectBook @book}}>
+<div class="table-row {{if isSelected 'selected'}}" {{action @selectBook @book}}>
   <div class="table-cell">{{@book.title}}</div>
   <div class="table-cell">{{@book.author}}</div>
   <div class="table-cell">{{@book.publicationYear}}</div>
