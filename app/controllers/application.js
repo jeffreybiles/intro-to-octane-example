@@ -47,6 +47,16 @@ export default class ApplicationController extends Controller {
     this.selectedBookId = book.id
   }
 
+  @action hideBook(book) {
+    this.hiddenBookIds.addObject(book.id);
+    this.notifyPropertyChange('hiddenBookIds');
+  }
+
+  @action showBook(book) {
+    this.hiddenBookIds.removeObject(book.id);
+    this.notifyPropertyChange('hiddenBookIds');
+  }
+
   headerInfo = [
     {name: 'Title', sortBy: 'title'},
     {name: 'Author', sortBy: 'author'},
