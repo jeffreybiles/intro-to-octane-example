@@ -1,5 +1,9 @@
 <h1>Book Collector</h1>
-
+{{#if selectedBook}}
+  <h3>Selected book is named {{selectedBook.title}}</h3>
+{{else}}
+  <h3>Please select a book</h3>
+{{/if}}
 <div class="table table--5cols">
   <div class="table-row">
     {{#each headerInfo as |header|}}
@@ -12,7 +16,7 @@
     <div class="table-cell header">Actions</div>
   </div>
   {{#each sortedBooks as |book|}}
-    <div class="table-row">
+    <div class="table-row" {{action 'selectBook' book}}>
       <div class="table-cell">{{book.title}}</div>
       <div class="table-cell">{{book.author}}</div>
       <div class="table-cell">{{book.publicationYear}}</div>

@@ -6,6 +6,11 @@ import { tracked } from '@glimmer/tracking';
 export default class ApplicationController extends Controller {
   @tracked sortProperty = 'pages'
   @tracked isReversed = false;
+  @tracked selectedBookId = null
+
+  get selectedBook(){
+    return this.books.findBy('id', this.selectedBookId)
+  }
 
   get sortedBooks(){
     let books = this.books.sortBy(this.sortProperty);
@@ -23,6 +28,10 @@ export default class ApplicationController extends Controller {
       this.isReversed = false;
     }
     this.sortProperty = sortProperty
+  }
+
+  @action selectBook(book) {
+    this.selectedBookId = book.id
   }
 
   headerInfo = [
