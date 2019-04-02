@@ -16,12 +16,6 @@
     <div class="table-cell header">Actions</div>
   </div>
   {{#each sortedBooks as |book|}}
-    <div class="table-row" {{action 'selectBook' book}}>
-      <div class="table-cell">{{book.title}}</div>
-      <div class="table-cell">{{book.author}}</div>
-      <div class="table-cell">{{book.publicationYear}}</div>
-      <div class="table-cell">{{book.pages}}</div>
-      <div class="table-cell"></div>
-    </div>
+    <BookTableRow @book={{book}} @selectBook={{this.selectBook}} />
   {{/each}}
 </div>
