@@ -26,6 +26,15 @@ button:hover {
   border-color: #000;
 }
 
+button:disabled {
+  cursor: default;
+}
+
+button:disabled:hover {
+  background-color: #EEF;
+  border-color: #BBE;
+}
+
 .unclickable {
   cursor: default;
 }
