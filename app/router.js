@@ -7,7 +7,10 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('about');
+  this.route('about', function() {
+    this.route('me');
+    this.route('books')
+  });
   this.route('books', {path: '/'});
 });
 
