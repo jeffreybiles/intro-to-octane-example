@@ -1,11 +1,11 @@
 <h1>Book Collector</h1>
 
-{{#if selectedBook}}
-  <h3>Selected book is named {{selectedBook.title}}</h3>
-{{else}}
-  <h3>Please select a book</h3>
-{{/if}}
-
+<div class="bulk-actions">
+    <button {{action this.hideBooks}}>Hide</button>
+    <button {{action this.showBooks}}>Show</button>
+    <button {{action this.selectAll}}>Select All</button>
+    <button {{action this.unselectAll}}>Unselect All</button>
+</div>
 <div class="table table--5cols">
   <div class="table-row">
     {{#each headerInfo as |header|}}
