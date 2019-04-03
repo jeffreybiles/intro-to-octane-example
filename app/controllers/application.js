@@ -6,7 +6,7 @@ import { tracked } from '@glimmer/tracking';
 export default class ApplicationController extends Controller {
   @tracked sortProperty = 'pages'
   @tracked isReversed = false;
-  @tracked selectedBookId = null
+  @tracked selectedBookIds = [2, 4]
   @tracked hiddenBookIds = [1, 3]
 
   get hiddenBooks(){
@@ -44,7 +44,12 @@ export default class ApplicationController extends Controller {
   }
 
   @action selectBook(book) {
-    this.selectedBookId = book.id
+    if(this.selectedBookIds.includes(book.id)){
+      this.selectedBookIds.removeObject(book.id);
+    } else {
+      this.selectedBookIds.addObject(book.id);
+    }
+    this.notifyPropertyChange('selectedBookIds');
   }
 
   @action hideBook(book) {

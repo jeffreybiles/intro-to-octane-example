@@ -20,7 +20,7 @@
   {{#each shownBooks as |book index|}}
     <BookTableRow @book={{book}}
                   @selectBook={{this.selectBook}}
-                  @selectedBook={{this.selectedBook}}
+                  @selectedBookIds={{this.selectedBookIds}}
                   @index={{index}}
                   @toggleAction={{this.hideBook}}
                   @toggleText='Hide' />
@@ -33,7 +33,7 @@
   {{#each hiddenBooks as |book index|}}
     <BookTableRow @book={{book}}
                   @selectBook={{this.selectBook}}
-                  @selectedBook={{this.selectedBook}}
+                  @selectedBookIds={{this.selectedBookIds}}
                   @index={{index}}
                   @toggleAction={{this.showBook}}
                   @toggleText='Show' />
