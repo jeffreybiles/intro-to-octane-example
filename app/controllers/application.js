@@ -43,7 +43,7 @@ export default class ApplicationController extends Controller {
     this.sortProperty = sortProperty
   }
 
-  @action selectBook(book) {
+  @action toggleBookSelection(book) {
     if(this.selectedBookIds.includes(book.id)){
       this.selectedBookIds.removeObject(book.id);
     } else {
