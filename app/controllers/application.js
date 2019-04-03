@@ -24,6 +24,8 @@ export default class ApplicationController extends Controller {
   get selectedBook(){
     return this.books.findBy('id', this.selectedBookId)
   }
+  get noBooksSelected(){ return this.selectedBookIds.length === 0 }
+  get allBooksSelected(){ return this.selectedBookIds.length === this.books.length }
 
   get sortedBooks(){
     let books = this.books.sortBy(this.sortProperty);

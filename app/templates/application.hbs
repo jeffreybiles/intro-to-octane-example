@@ -1,10 +1,10 @@
 <h1>Book Collector</h1>
 
 <div class="bulk-actions">
-    <button {{action this.hideBooks}}>Hide</button>
-    <button {{action this.showBooks}}>Show</button>
-    <button {{action this.selectAll}}>Select All</button>
-    <button {{action this.unselectAll}}>Unselect All</button>
+    <button {{action this.hideBooks}} disabled={{noBooksSelected}}>Hide</button>
+    <button {{action this.showBooks}} disabled={{noBooksSelected}}>Show</button>
+    <button {{action this.selectAll}} disabled={{allBooksSelected}}>Select All</button>
+    <button {{action this.unselectAll}} disabled={{noBooksSelected}}>Unselect All</button>
 </div>
 <div class="table table--5cols">
   <div class="table-row">
