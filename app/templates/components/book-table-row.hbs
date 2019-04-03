@@ -4,11 +4,8 @@
   <div class="table-cell">{{@book.publicationYear}}</div>
   <div class="table-cell">{{@book.pages}}</div>
   <div class="table-cell">
-    {{#if @hideBook}}
-      <button {{action @hideBook @book}}>Hide</button>
-    {{/if}}
-    {{#if @showBook}}
-      <button {{action @showBook @book}}>Show</button>
+    {{#if @toggleAction}}
+      <button {{action @toggleAction @book}}>{{@toggleText}}</button>
     {{/if}}
   </div>
 </div>

@@ -22,7 +22,8 @@
                   @selectBook={{this.selectBook}}
                   @selectedBook={{this.selectedBook}}
                   @index={{index}}
-                  @hideBook={{this.hideBook}} />
+                  @toggleAction={{this.hideBook}}
+                  @toggleText='Hide' />
   {{/each}}
 </div>
 
@@ -34,6 +35,7 @@
                   @selectBook={{this.selectBook}}
                   @selectedBook={{this.selectedBook}}
                   @index={{index}}
-                  @showBook={{this.showBook}} />
+                  @toggleAction={{this.showBook}}
+                  @toggleText='Show' />
   {{/each}}
 </div>
