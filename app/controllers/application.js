@@ -2,7 +2,6 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-
 export default class ApplicationController extends Controller {
   @tracked sortProperty = 'pages'
   @tracked isReversed = false;
@@ -14,19 +13,13 @@ export default class ApplicationController extends Controller {
       return this.hiddenBookIds.includes(book.id);
     });
   }
-
   get shownBooks(){
     return this.sortedBooks.filter((book)=>{
       return !this.hiddenBookIds.includes(book.id);
     });
   }
-
-  get selectedBook(){
-    return this.books.findBy('id', this.selectedBookId)
-  }
   get noBooksSelected(){ return this.selectedBookIds.length === 0 }
   get allBooksSelected(){ return this.selectedBookIds.length === this.books.length }
-
   get sortedBooks(){
     let books = this.books.sortBy(this.sortProperty);
     if(this.isReversed) {
@@ -44,7 +37,6 @@ export default class ApplicationController extends Controller {
     }
     this.sortProperty = sortProperty
   }
-
   @action toggleBookSelection(book) {
     if(this.selectedBookIds.includes(book.id)){
       this.selectedBookIds.removeObject(book.id);
@@ -53,32 +45,12 @@ export default class ApplicationController extends Controller {
     }
     this.notifyPropertyChange('selectedBookIds');
   }
-
-  @action hideBook(book) {
-    this.hiddenBookIds.addObject(book.id);
-    this.notifyPropertyChange('hiddenBookIds');
-  }
-  @action hideBooks(){
-    this.hiddenBookIds.addObjects(this.selectedBookIds);
-    this.notifyPropertyChange('hiddenBookIds');
-  }
-
-  @action showBook(book) {
-    this.hiddenBookIds.removeObject(book.id);
-    this.notifyPropertyChange('hiddenBookIds');
-  }
-  @action showBooks(){
-    this.hiddenBookIds.removeObjects(this.selectedBookIds);
-    this.notifyPropertyChange('hiddenBookIds');
-  }
-
-  @action selectAll(){
-    this.selectedBookIds = this.books.mapBy('id');
-  }
-  @action unselectAll(){
-    this.selectedBookIds = []
-  }
-
+  @action hideBook(book) { this.hiddenBookIds.addObject(book.id); }
+  @action hideBooks(){ this.hiddenBookIds.addObjects(this.selectedBookIds); }
+  @action showBook(book) { this.hiddenBookIds.removeObject(book.id); }
+  @action showBooks(){ this.hiddenBookIds.removeObjects(this.selectedBookIds); }
+  @action selectAll(){ this.selectedBookIds = this.books.mapBy('id'); }
+  @action unselectAll(){ this.selectedBookIds = [] }
 
   headerInfo = [
     {name: 'Title', sortBy: 'title'},
