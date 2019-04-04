@@ -7,5 +7,6 @@
     {{#if @toggleAction}}
       <button {{action @toggleAction @book}}>{{@toggleText}}</button>
     {{/if}}
+    {{link-to 'Visit' 'books.book' @book.id tagName="button"}}
   </div>
 </div>
