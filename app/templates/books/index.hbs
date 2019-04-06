@@ -1,10 +1,10 @@
 <h1>Book Collector</h1>
 
 <div class="bulk-actions">
-    <button {{action this.hideBooks}} disabled={{this.noBooksSelected}}>Hide</button>
-    <button {{action this.showBooks}} disabled={{this.noBooksSelected}}>Show</button>
-    <button {{action this.selectAll}} disabled={{this.allBooksSelected}}>Select All</button>
-    <button {{action this.unselectAll}} disabled={{this.noBooksSelected}}>Unselect All</button>
+  <button {{action this.hideBooks}} disabled={{this.noBooksSelected}}>Hide</button>
+  <button {{action this.showBooks}} disabled={{this.noBooksSelected}}>Show</button>
+  <button {{action this.selectAll}} disabled={{this.allBooksSelected}}>Select All</button>
+  <button {{action this.unselectAll}} disabled={{this.noBooksSelected}}>Unselect All</button>
 </div>
 <div class="table table--5cols">
   <div class="table-row">
@@ -23,7 +23,7 @@
                   @selectedBookIds={{this.selectedBookIds}}
                   @index={{index}}
                   @toggleAction={{this.hideBook}}
-                  @toggleText='Hide' />
+                  @toggleText="Hide" />
   {{/each}}
 </div>
 
@@ -36,6 +36,6 @@
                   @selectedBookIds={{this.selectedBookIds}}
                   @index={{index}}
                   @toggleAction={{this.showBook}}
-                  @toggleText='Show' />
+                  @toggleText="Show" />
   {{/each}}
 </div>
