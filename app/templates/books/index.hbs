@@ -1,14 +1,14 @@
 <h1>Book Collector</h1>
 
 <div class="bulk-actions">
-    <button {{action this.hideBooks}} disabled={{noBooksSelected}}>Hide</button>
-    <button {{action this.showBooks}} disabled={{noBooksSelected}}>Show</button>
-    <button {{action this.selectAll}} disabled={{allBooksSelected}}>Select All</button>
-    <button {{action this.unselectAll}} disabled={{noBooksSelected}}>Unselect All</button>
+    <button {{action this.hideBooks}} disabled={{this.noBooksSelected}}>Hide</button>
+    <button {{action this.showBooks}} disabled={{this.noBooksSelected}}>Show</button>
+    <button {{action this.selectAll}} disabled={{this.allBooksSelected}}>Select All</button>
+    <button {{action this.unselectAll}} disabled={{this.noBooksSelected}}>Unselect All</button>
 </div>
 <div class="table table--5cols">
   <div class="table-row">
-    {{#each headerInfo as |header|}}
+    {{#each this.headerInfo as |header|}}
       <SortableHeader @columnName={{header.name}}
                       @sortBooks={{action this.sortBooks}}
                       @sortBy={{header.sortBy}}
@@ -17,7 +17,7 @@
     {{/each}}
     <div class="table-cell header">Actions</div>
   </div>
-  {{#each shownBooks as |book index|}}
+  {{#each this.shownBooks as |book index|}}
     <BookTableRow @book={{book}}
                   @toggleBookSelection={{this.toggleBookSelection}}
                   @selectedBookIds={{this.selectedBookIds}}
@@ -30,7 +30,7 @@
 <h1>Hidden Books</h1>
 
 <div class="table table--5cols">
-  {{#each hiddenBooks as |book index|}}
+  {{#each this.hiddenBooks as |book index|}}
     <BookTableRow @book={{book}}
                   @toggleBookSelection={{this.toggleBookSelection}}
                   @selectedBookIds={{this.selectedBookIds}}

@@ -1,6 +1,6 @@
-<div class="table-cell header {{if isSelected 'selected'}}" {{action @sortBooks @sortBy}}>
+<div class="table-cell header {{if this.isSelected 'selected'}}" {{action @sortBooks @sortBy}}>
   {{@columnName}}
-  {{#if isSelected}}
+  {{#if this.isSelected}}
     {{#if @isReversed}}
       &uarr;
     {{else}}

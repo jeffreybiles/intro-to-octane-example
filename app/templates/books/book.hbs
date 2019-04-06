@@ -1,13 +1,13 @@
 <div class="container">
-  <h1>{{model.title}}</h1>
+  <h1>{{this.model.title}}</h1>
   <div class="book-display">
     <div class="book-image">
-      <img src={{model.imgUrl}} alt="">
+      <img src={{this.model.imgUrl}} alt="">
     </div>
     <div class="book-info">
-      <p>A book by <strong>{{model.author}}</strong></p>
-      <p><strong>{{model.pages}}</strong> pages</p>
-      <p>Published in <strong>{{model.publicationYear}}</strong></p>
+      <p>A book by <strong>{{this.model.author}}</strong></p>
+      <p><strong>{{this.model.pages}}</strong> pages</p>
+      <p>Published in <strong>{{this.model.publicationYear}}</strong></p>
       {{link-to 'Back to List' 'books' tagName="button"}}
     </div>
   </div>
