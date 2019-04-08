@@ -13,7 +13,6 @@ Router.map(function() {
     this.route('custom', {path: 'custom/:custom_string'})
   });
   this.route('books', {path: '/'}, function(){
-    // this.route('index');
     this.route('book', {path: '/book/:id'})
   });
 });

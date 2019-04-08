@@ -46,10 +46,10 @@ export default class ApplicationController extends Controller {
     }
     this.notifyPropertyChange('selectedBookIds');
   }
-  @action hideBook(book) { this.hiddenBookIds.addObject(book.id); }
-  @action hideBooks(){ this.hiddenBookIds.addObjects(this.selectedBookIds); }
-  @action showBook(book) { this.hiddenBookIds.removeObject(book.id); }
-  @action showBooks(){ this.hiddenBookIds.removeObjects(this.selectedBookIds); }
+  @action hideBook(book) { this.hiddenBookIds.addObject(book.id); this.notifyPropertyChange('hiddenBookIds'); }
+  @action hideBooks(){ this.hiddenBookIds.addObjects(this.selectedBookIds); this.notifyPropertyChange('hiddenBookIds'); }
+  @action showBook(book) { this.hiddenBookIds.removeObject(book.id); this.notifyPropertyChange('hiddenBookIds'); }
+  @action showBooks(){ this.hiddenBookIds.removeObjects(this.selectedBookIds); this.notifyPropertyChange('hiddenBookIds'); }
   @action selectAll(){ this.selectedBookIds = this.books.mapBy('id'); }
   @action unselectAll(){ this.selectedBookIds = [] }
 
